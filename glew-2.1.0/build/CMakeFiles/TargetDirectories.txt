@@ -1,0 +1,11 @@
+/home/colegilson/c++_play/glew-2.1.0/build/CMakeFiles/install/strip.dir
+/home/colegilson/c++_play/glew-2.1.0/build/CMakeFiles/install/local.dir
+/home/colegilson/c++_play/glew-2.1.0/build/CMakeFiles/install.dir
+/home/colegilson/c++_play/glew-2.1.0/build/CMakeFiles/list_install_components.dir
+/home/colegilson/c++_play/glew-2.1.0/build/CMakeFiles/rebuild_cache.dir
+/home/colegilson/c++_play/glew-2.1.0/build/CMakeFiles/edit_cache.dir
+/home/colegilson/c++_play/glew-2.1.0/build/CMakeFiles/uninstall.dir
+/home/colegilson/c++_play/glew-2.1.0/build/CMakeFiles/visualinfo.dir
+/home/colegilson/c++_play/glew-2.1.0/build/CMakeFiles/glewinfo.dir
+/home/colegilson/c++_play/glew-2.1.0/build/CMakeFiles/glew_s.dir
+/home/colegilson/c++_play/glew-2.1.0/build/CMakeFiles/glew.dir

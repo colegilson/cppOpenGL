@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/colegilson/c++_play/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/my_proj.dir/src/play.cpp.o -c /home/colegilson/c++_play/src/play.cpp",
+  "file": "/home/colegilson/c++_play/src/play.cpp"
+}
+]
