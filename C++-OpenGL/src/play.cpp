@@ -1,6 +1,52 @@
 #include"glew.h"
 #include<GLFW/glfw3.h>
 #include<iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+
+struct ShaderProgramSource
+{
+    std::string vertexSource;
+    std::string fragmentSource;
+};
+
+static ShaderProgramSource ParseShader(const std::string &shadefile)
+//obtain shader info from .shader file
+{
+    std::ifstream stream(shadefile);
+    
+    enum class ShaderType
+    {
+        NONE = -1, VERTEX = 0, FRAGMENT = 1
+    };
+
+    std::string line;
+    std::stringstream ss[2];
+    ShaderType type = ShaderType::NONE;
+
+    while(getline(stream, line))
+    //std::cout << "gets line" << std::endl;
+    {
+        if (line.find("#shader") != std::string::npos)
+        {
+            if (line.find("vertex") != std::string::npos)
+            {
+                //std::cout << "found vertex" << std::endl;
+                type = ShaderType::VERTEX;
+            }
+            else if (line.find("fragment"))
+            {
+                type = ShaderType::FRAGMENT;
+            }
+        }
+        else
+        {
+            ss[(int)type] << line << "\n";
+        }
+    }
+    return {ss[0].str(), ss[1].str()};
+}
 
 static unsigned int CompileShader(unsigned int type, const std::string &source)
 {
@@ -75,7 +121,9 @@ int main(void)
     if (!glfwInit())
         return -1;
     
-    
+    glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 3 );
+    glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 3 );
+    glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
     
     // Create a windowed mode window and its OpenGL context 
     window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
@@ -101,7 +149,7 @@ int main(void)
          0.5f, -0.5f
     };
 
-    unsigned int VAO;
+    unsigned int VAO = 0;
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
 
@@ -123,30 +171,14 @@ int main(void)
         Pointer:                         a pointer into the actual attribute, how many bytes into the attribute is the information needed aka offset)
     */
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), 0);
+
+    ShaderProgramSource source = ParseShader("../res/shaders/basic.shader");
+    // std::cout << "vertex shader" << std::endl;
+    // std::cout << source.vertexSource << std::endl;
+    // std::cout << "fragment shader" << std::endl;
+    // std::cout << source.fragmentSource << std::endl;
     
-    //create information for the vertex shader
-    std::string vertexShader = 
-    "#version 330 core\n"
-    "\n"
-    "layout(location = 0) in vec4 position;\n"
-    "\n"
-    "void main()\n"
-    "{\n"
-    "   gl_Position = position;\n"
-    "}\n";
-
-    //create information for the fragment shader
-    std::string fragmentShader = 
-    "#version 330 core\n"
-    "\n"
-    "out vec4 colour;\n"
-    "\n"
-    "void main()\n"
-    "{\n"
-    "   colour = vec4(1.0, 0.0, 0.0, 1.0);\n"
-    "}\n";
-
-    unsigned int shader = CreateShader(vertexShader, fragmentShader); 
+    unsigned int shader = CreateShader(source.vertexSource, source.fragmentSource); 
     // create shader
 
     glUseProgram(shader);

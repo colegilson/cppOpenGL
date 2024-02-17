@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/colegilson/c++_play/build"
+			"value" : "/home/colegilson/Cpp_OpenGL/C++-OpenGL/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -595,7 +595,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/colegilson/c++_play"
+			"value" : "/home/colegilson/Cpp_OpenGL/C++-OpenGL"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1451,7 +1451,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/colegilson/c++_play/build"
+			"value" : "/home/colegilson/Cpp_OpenGL/C++-OpenGL/build"
 		},
 		{
 			"name" : "my_proj_SOURCE_DIR",
@@ -1463,7 +1463,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/colegilson/c++_play"
+			"value" : "/home/colegilson/Cpp_OpenGL/C++-OpenGL"
 		}
 	],
 	"kind" : "cache",

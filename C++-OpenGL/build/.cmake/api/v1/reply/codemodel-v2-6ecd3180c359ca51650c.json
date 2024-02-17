@@ -48,8 +48,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/colegilson/c++_play/build",
-		"source" : "/home/colegilson/c++_play"
+		"build" : "/home/colegilson/Cpp_OpenGL/C++-OpenGL/build",
+		"source" : "/home/colegilson/Cpp_OpenGL/C++-OpenGL"
 	},
 	"version" : 
 	{

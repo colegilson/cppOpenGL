@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/colegilson/c++_play/src/glew.c" "/home/colegilson/c++_play/build/CMakeFiles/my_proj.dir/src/glew.c.o"
+  "/home/colegilson/Cpp_OpenGL/C++-OpenGL/src/glew.c" "/home/colegilson/Cpp_OpenGL/C++-OpenGL/build/CMakeFiles/my_proj.dir/src/glew.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -13,7 +13,7 @@ set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_TARGET_INCLUDE_PATH
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/colegilson/c++_play/src/play.cpp" "/home/colegilson/c++_play/build/CMakeFiles/my_proj.dir/src/play.cpp.o"
+  "/home/colegilson/Cpp_OpenGL/C++-OpenGL/src/play.cpp" "/home/colegilson/Cpp_OpenGL/C++-OpenGL/build/CMakeFiles/my_proj.dir/src/play.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

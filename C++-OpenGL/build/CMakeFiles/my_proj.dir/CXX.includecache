@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/colegilson/c++_play/src/glew.h
+/home/colegilson/Cpp_OpenGL/C++-OpenGL/src/glew.h
 stddef.h
 -
 inttypes.h
@@ -22,11 +22,17 @@ OpenGL/glu.h
 GL/glu.h
 -
 
-/home/colegilson/c++_play/src/play.cpp
+/home/colegilson/Cpp_OpenGL/C++-OpenGL/src/play.cpp
 glew.h
-/home/colegilson/c++_play/src/glew.h
+/home/colegilson/Cpp_OpenGL/C++-OpenGL/src/glew.h
 GLFW/glfw3.h
 -
 iostream
+-
+fstream
+-
+string
+-
+sstream
 -
 
