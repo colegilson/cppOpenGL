@@ -143,10 +143,16 @@ int main(void)
     
     std::cout << glGetString(GL_VERSION) << std::endl;
     
-    float positions[6] = {
-        -0.5f,-0.5f,
-         0.0f,  0.5f,
-         0.5f, -0.5f
+    float positions[8] = {
+        -0.5f,-0.5f, // P1
+        0.5f, -0.5f, // P2
+        0.5f,  0.5f, // P3
+        -0.5f, 0.5f // P4
+    };
+
+    unsigned int indicies[] = {
+        0, 1, 2,
+        2, 3, 0
     };
 
     unsigned int VAO = 0;
@@ -156,7 +162,8 @@ int main(void)
     unsigned int buf;
     glGenBuffers(1, &buf);
     glBindBuffer(GL_ARRAY_BUFFER, buf);
-    glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
+    //glBufferData(type_of_buffer, num verticies * num shapes, verticies_array, )
+    glBufferData(GL_ARRAY_BUFFER, 6 * 2 * sizeof(float), positions, GL_STATIC_DRAW);
     //glBindBuffer(GL_ARRAY_BUFFER, 0); 
     //uncommenting this line above makes the triangle "wonky" aka it goes off into the corner and is not a triangle
     
@@ -171,6 +178,13 @@ int main(void)
         Pointer:                         a pointer into the actual attribute, how many bytes into the attribute is the information needed aka offset)
     */
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), 0);
+
+
+    unsigned int ibo; // Index Buffer Object
+    glGenBuffers(1, &ibo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+    //glBufferData(type_of_buffer, num verticies * num shapes, verticies_array, GL_STATIC_DRAW)
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), indicies, GL_STATIC_DRAW); //sizeof() must be unsigned
 
     ShaderProgramSource source = ParseShader("../res/shaders/basic.shader");
     // std::cout << "vertex shader" << std::endl;
@@ -191,7 +205,7 @@ int main(void)
         // Render here 
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
         // Swap front and back buffers
         glfwSwapBuffers(window);
